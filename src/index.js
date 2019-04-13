@@ -3,7 +3,6 @@ const http = require('http');
 const express = require('express');
 const socketio = require('socket.io');
 const Filter = require('bad-words');
-var qs = require('qs');
 
 const { generateMessage, generateLocationMessage } = require('./utils/message');
 
@@ -37,7 +36,7 @@ io.on('connection', (socket) => {
             return callback('...');
         }
 
-        io.to('Center City').emit('message', generateMessage(message));
+        io.to('centerCity').emit('message', generateMessage(message));
         callback();
     });
 
