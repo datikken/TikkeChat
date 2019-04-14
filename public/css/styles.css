@@ -14,10 +14,21 @@ input {
     font-size: 14px;
 }
 
+@font-face {
+    font-family: '../img/Stem-Hairline.otf';
+    src: url('../img/Stem-Hairline.otf');
+    font-family: "Stem";
+}
+
 body {
     line-height: 1.4;
     color: #333333;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Stem";
+    font-weight: 900;
+}
+
+a {
+    text-decoration: none;
 }
 
 h1 {
@@ -28,9 +39,7 @@ label {
     display: block;
     font-size: 14px;
     margin-bottom: 8px;
-    color: #777;
 }
-
 input {
     border: 1px solid #eeeeee;
     padding: 12px;
@@ -45,6 +54,7 @@ button {
     color: white;
     font-size: 16px;
     transition: background .3s ease;
+    font-family: "Stem";
 }
 
 button:hover {
@@ -71,7 +81,7 @@ button:disabled {
     box-shadow: 0px 0px 17px 1px #1D1F26;
     background: #F7F7FA;
     padding: 24px;
-    width: 250px;
+    width: 320px;
 }
 
 .centered-form button {
@@ -81,20 +91,42 @@ button:disabled {
 .centered-form input {
     margin-bottom: 16px;
     width: 100%;
+    font-family: "Stem";
 }
 
 /* Chat Page Layout */
+@media screen and (max-width: 800px) {
+    .chat__messages {
+        height: 64vh!important;
+    }
+    .chat__sidebar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        max-height: 170px;
+        overflow-y: scroll;
+    }
+    .chat__main {
+        padding-top: 10rem!important;
 
+    }
+    .users {
+        margin-bottom: 1rem;
+    }
+    li {
+        margin: .5rem 0;
+    }
+}
 .chat {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .chat__sidebar {
-    height: 100vh;
     color: white;
     background: #333744;
-    width: 225px;
-    overflow-y: scroll
+    overflow-y: scroll;
+    min-width: 200px;
 }
 
 .chat__main {
@@ -108,7 +140,7 @@ button:disabled {
     flex:1 1 auto;
     padding: 24px 24px 0 24px;
     overflow-y: scroll;
-    height: 90vh;
+    height: 85.7vh;
 }
 
 .message {
@@ -133,11 +165,6 @@ button:disabled {
 /* Message Composition Styles */
 
 .compose {
-    position: absolute;
-    bottom: 0;
-    width: 80%;
-    right: 0;
-
     display: flex;
     flex-shrink: 0;
     margin-top: 16px;
